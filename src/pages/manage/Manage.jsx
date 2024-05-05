@@ -29,7 +29,7 @@ const Manage = () => {
       <img src={val.url} alt="img" />
       <h2>{val.lname}</h2>
       <h3>{val.sname}</h3>
-      <p>Age: {val.age}</p>
+      <p style={{ marginBottom: "10px" }}>Age: {val.age}</p>
       <button onClick={() => handleDeleteUser(val.id)}>Delete</button>
     </div>
   ));

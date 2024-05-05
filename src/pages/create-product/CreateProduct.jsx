@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "../../api";
+import { toast } from "react-toastify";
 
 const initialState = {
   lname: "",
@@ -15,7 +16,8 @@ const CreateProduct = () => {
     axios
       .post("/users", create)
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
+        toast.success("User Yaratldi");
         setCreate(initialState);
       })
       .catch((err) => console.log(err));
@@ -25,6 +27,7 @@ const CreateProduct = () => {
       <form onSubmit={handleCreateUser}>
         <input
           type="text"
+          required
           placeholder="FirstName"
           className="manage-input"
           value={create.lname}
@@ -34,6 +37,7 @@ const CreateProduct = () => {
         />
         <input
           type="text"
+          required
           placeholder="LastName"
           className="manage-input"
           value={create.sname}
@@ -44,6 +48,7 @@ const CreateProduct = () => {
         <input
           type="number"
           placeholder="Age"
+          required
           className="manage-input"
           value={create.age}
           onChange={(e) =>
