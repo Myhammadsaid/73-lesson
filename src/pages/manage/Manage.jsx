@@ -4,12 +4,15 @@ import axios from "../../api";
 const Manage = () => {
   const [data, setData] = useState(null);
   const [reload, setReload] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(`/users`)
       .then((res) => setData(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(setLoading(false));
   }, [reload]);
 
   const handleDeleteUser = (id) => {
@@ -37,6 +40,7 @@ const Manage = () => {
     <>
       <section className="product">
         <div className="container">
+          {loading ? <h2>Loading...</h2> : <></>}
           <div className="product-cards">{products}</div>
         </div>
       </section>
