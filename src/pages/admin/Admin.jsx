@@ -31,9 +31,9 @@ const Admin = () => {
               </ul>
             </div>
           </div>
-          <Outlet />
         </div>
       </section>
+      <Outlet />
     </>
   );
 };
