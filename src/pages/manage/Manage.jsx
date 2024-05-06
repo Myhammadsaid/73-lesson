@@ -12,7 +12,7 @@ const Manage = () => {
       .get(`/users`)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err))
-      .finally(setLoading(false));
+      .finally(() => setLoading(false));
   }, [reload]);
 
   const handleDeleteUser = (id) => {

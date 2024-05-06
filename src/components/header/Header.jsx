@@ -37,12 +37,12 @@ function Navbar() {
                 <span>Admin</span>
               </NavLink>
               <a className="navbar__item">
-                <FaRegUser />
-                <span>Manage</span>
+                <FaRegHeart />
+                <span>Wishes</span>
               </a>
               <a className="navbar__item">
-                <FaRegUser />
-                <span>Create User</span>
+                <FiShoppingCart />
+                <span>Cart</span>
               </a>
             </div>
           </nav>

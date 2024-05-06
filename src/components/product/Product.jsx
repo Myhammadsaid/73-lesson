@@ -3,12 +3,15 @@ import axios from "../../api";
 
 const Product = () => {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(`/users`)
       .then((res) => setData(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   }, []);
 
   const products = data?.map((val) => (
@@ -23,6 +26,7 @@ const Product = () => {
     <>
       <section className="product">
         <div className="container">
+          {loading ? <h2>Loading...</h2> : <></>}
           <div className="product-cards">{products}</div>
         </div>
       </section>
